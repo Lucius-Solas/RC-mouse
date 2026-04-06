@@ -121,10 +121,10 @@ def main() -> int:
 
             state.vy += y_acceleration
             state.vx += x_acceleration
-            state.vx += right_x * args.right_x_speed
 
             state.vx *= args.damping
             state.vy *= args.damping
+            state.vx += right_x * args.right_x_speed
 
             state.x = (state.x + state.vx) % screen_w
             state.y = (state.y + state.vy) % screen_h
