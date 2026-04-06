@@ -114,7 +114,9 @@ def main() -> int:
                 get_axis_safe(joystick, args.right_x_axis), args.deadzone
             )
 
-            y_acceleration = args.gravity + (left_y * args.left_y_accel)
+            y_acceleration = left_y * args.left_y_accel
+            if left_y == 0.0:
+                y_acceleration += args.gravity
             x_acceleration = left_x * args.left_x_accel
 
             state.vy += y_acceleration
