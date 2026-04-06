@@ -90,7 +90,7 @@ def main() -> int:
     joystick = pygame.joystick.Joystick(0)
     joystick.init()
 
-    pyautogui.FAILSAFE = False
+    pyautogui.FAILSAFE = True
     screen_w, screen_h = pyautogui.size()
     start_x, start_y = pyautogui.position()
     state = CursorState(float(start_x), float(start_y))
@@ -98,6 +98,7 @@ def main() -> int:
 
     print(f"Using controller: {joystick.get_name()}")
     print("Press Ctrl+C to stop.")
+    print("Emergency stop: move cursor to a screen corner (PyAutoGUI failsafe).")
 
     try:
         while True:
@@ -124,7 +125,7 @@ def main() -> int:
 
             pyautogui.moveTo(int(state.x), int(state.y), _pause=False)
             clock.tick(args.hz)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, pyautogui.FailSafeException):
         pass
     finally:
         joystick.quit()
