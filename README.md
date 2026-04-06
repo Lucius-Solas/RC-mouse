@@ -1,4 +1,4 @@
-# RC-mouse
+# RC-Mouse
 
 Control the system mouse cursor with a joystick/controller (for example a RadioMaster Pocket) using simple physics-based movement.
 
@@ -12,7 +12,7 @@ Control the system mouse cursor with a joystick/controller (for example a RadioM
 
 ## Setup
 
-1. Install Python 3.10+.
+1. Install Python 3.8+.
 2. Install dependencies:
 
 ```bash

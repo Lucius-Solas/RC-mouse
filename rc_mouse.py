@@ -104,18 +104,22 @@ def main() -> int:
         while True:
             pygame.event.pump()
 
-            lx = apply_deadzone(get_axis_safe(joystick, args.left_x_axis), args.deadzone)
-            ly = apply_deadzone(get_axis_safe(joystick, args.left_y_axis), args.deadzone)
-            rx = apply_deadzone(
+            left_x = apply_deadzone(
+                get_axis_safe(joystick, args.left_x_axis), args.deadzone
+            )
+            left_y = apply_deadzone(
+                get_axis_safe(joystick, args.left_y_axis), args.deadzone
+            )
+            right_x = apply_deadzone(
                 get_axis_safe(joystick, args.right_x_axis), args.deadzone
             )
 
-            ay = args.gravity + (ly * args.left_y_accel)
-            ax = lx * args.left_x_accel
+            y_acceleration = args.gravity + (left_y * args.left_y_accel)
+            x_acceleration = left_x * args.left_x_accel
 
-            state.vy += ay
-            state.vx += ax
-            state.vx += rx * args.right_x_speed
+            state.vy += y_acceleration
+            state.vx += x_acceleration
+            state.vx += right_x * args.right_x_speed
 
             state.vx *= args.damping
             state.vy *= args.damping
