@@ -115,7 +115,7 @@ def main() -> int:
             )
 
             y_acceleration = left_y * args.left_y_accel
-            if left_y == 0.0:
+            if abs(left_y) < 1e-9:
                 y_acceleration += args.gravity
             x_acceleration = left_x * args.left_x_accel
 
