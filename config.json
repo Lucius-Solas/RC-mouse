@@ -1,0 +1,20 @@
+{
+  "_comment": "RC-mouse configuration. Edit axis/button indices to match your specific controller.",
+  "controller_index": 0,
+  "axes": {
+    "x": 0,
+    "y": 1,
+    "scroll": 3
+  },
+  "buttons": {
+    "left_click": 0,
+    "right_click": 1,
+    "scroll_mode_toggle": 2,
+    "quit": 9
+  },
+  "sensitivity": 20,
+  "dead_zone": 0.05,
+  "invert_y": false,
+  "invert_x": false,
+  "poll_rate_hz": 60
+}
